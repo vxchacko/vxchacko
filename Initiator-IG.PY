@@ -12,14 +12,15 @@ TCP_PORT = 1500
 HEADER = 'HEAD'
 
 # Create the commands here. Try examples below.
-COMMAND = 'NC'
+COMMAND = 'IG010003%01'
 
 # calculate the message length in byte and add to front of message string.
 l = len(HEADER + COMMAND)
 SIZE = pack('>h', l)
 
 # Create message
-MESSAGE = SIZE + HEADER.encode() + COMMAND.encode()
+# MESSAGE = SIZE + HEADER.encode() + COMMAND.encode()
+MESSAGE = SIZE + HEADER + COMMAND
 
 # Create socket and connect
 print("Connecting to HSM ... ")
@@ -39,10 +40,10 @@ data = s.recv(BUFFER_SIZE)
 s.close()
 
 print("sent data    : ", MESSAGE)
-# print("sent data  (HEX)  : ", MESSAGE.hex())
+print("sent data  (HEX)  : ", MESSAGE.encode('hex'))
 
 # Printing received data
 print("received data: ", data)
-# print("received data (HEX):", data.hex())
+print (data.encode('hex'))
 
 input('Press Enter key to exit')  # stop the window from disappearing
