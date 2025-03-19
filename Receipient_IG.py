@@ -47,6 +47,6 @@ print("sent data  (HEX)  : ", MESSAGE.encode('hex'))
 
 # Printing received data
 print("received data: ", data)
-print (data.encode('hex'))
+print ("received data in HEX: ", data.encode('hex'))
 
 input('Press Enter key to exit')  # stop the window from disappearing
